@@ -4,8 +4,14 @@
 
   <groupId>com.papertrailapp</groupId>
   <artifactId>logback-syslog4j</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.0-toast1</version>
   <packaging>jar</packaging>
+
+  <parent>
+    <groupId>com.toasttab.service</groupId>
+    <artifactId>toast-base</artifactId>
+    <version>4.0</version>
+  </parent>
 
   <name>logback-syslog4j</name>
   <description>Logback appender using syslog4j to send via syslog</description>
@@ -68,13 +74,6 @@
     </dependency>
   </dependencies>
 
-  <distributionManagement>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
-
   <build>
     <plugins>
       <plugin>
@@ -105,32 +104,6 @@
         </executions>
       </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.5</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.2</version>
-        <extensions>true</extensions>
-        <configuration>
-          <serverId>ossrh</serverId>
-          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-          <autoReleaseAfterClose>false</autoReleaseAfterClose>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
 </project>
